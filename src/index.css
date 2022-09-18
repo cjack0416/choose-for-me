@@ -16,13 +16,21 @@
 
 body {
   font-family: 'Poppins', sans-serif;
-  display: flex;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
 }
 
 h1 {
-  font-weight: 600;
+  font-size: 3.5rem;
+  font-weight: 800;
 }
 
 h2 {
   font-weight: lighter;
+}
+
+.bg-shape {
+  position: absolute;
+  z-index: -1;
+  top: 0;
 }

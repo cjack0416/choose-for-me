@@ -1,11 +1,11 @@
-import MainView from './pages/main/MainView'
+import HomeView from "./pages";
+import { ReactComponent as BgShape} from './assets/backgroundWaveShape.svg';
 
-const App = () => {
+export default function App() {
   return (
     <>
-      <MainView/>
+      <BgShape className='bg-shape'/>
+      <HomeView/>
     </>
   );
 }
-
-export default App;

@@ -6,12 +6,6 @@ h2 {
     line-height: 3rem;
 }
 
-.bg-shape {
-    position: absolute;
-    z-index: -1;
-    top: 0;
-}
-
 .main-container {
     margin: 0 5rem 0 5rem;
 }
