@@ -25,6 +25,7 @@ h2 {
 .pg-grid-item:nth-child(2) {
     grid-row: 2 / 3;
     grid-column: 1 / 2;
+    justify-self: center;
 }
 
 .pg-grid-item:nth-child(3) {
@@ -35,6 +36,7 @@ h2 {
 .pg-grid-item:nth-child(4) {
     grid-row: 2 / 3;
     grid-column: 2 / 3;
+    justify-self: center;
 }
 
 @media (max-width: 800px)  {

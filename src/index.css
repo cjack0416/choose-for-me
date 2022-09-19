@@ -1,12 +1,13 @@
 :root {
-  --bg-color--: #CBA1FF;
-  --button-color--: #C17AC7;
-  --grey-container-color--: #F3F3F3;
-  --grey-container-border-coloer--: #A4A4A4;
-  --grey-input-container-color--: #D9D9D9;
-  --input-placeholder-color--: #9D9D9D;
-  --selected-option-color--: #50D944;
-  --selected-option-border-color--: #00AE1C;
+  --bg-color: #CBA1FF;
+  --button-color: #C17AC7;
+  --button-hover-color: #9e4ea5;
+  --grey-container-color: #F3F3F3;
+  --grey-container-border-coloer: #A4A4A4;
+  --grey-input-container-color: #D9D9D9;
+  --input-placeholder-color: #9D9D9D;
+  --selected-option-color: #50D944;
+  --selected-option-border-color: #00AE1C;
 }
 
 * {
@@ -21,16 +22,40 @@ body {
 }
 
 h1 {
-  font-size: 3.5rem;
+  font-size: 3.5em;
   font-weight: 800;
 }
 
 h2 {
-  font-weight: lighter;
+  font-size: 1.8em;
+  font-weight: normal;
 }
+
+/* Background SVG*/
 
 .bg-shape {
   position: absolute;
   z-index: -1;
   top: 0;
+}
+
+/* Global button styling */
+
+.btn {
+  background-color: var(--button-color);
+  font-size: 1.3em;
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+  border-radius: 3px;
+  position: relative;
+  top: 0;
+  transition: top ease 0.3s, background-color ease-in 0.3s;
+}
+
+.btn:hover {
+  background-color: var(--button-hover-color);
+  top: -8px;
+}
+
+.btn:active {
+  box-shadow: 0px 0px 0px rgba(0, 0, 0, 0.25);
 }
