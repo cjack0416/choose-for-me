@@ -11,6 +11,7 @@ export default function PickOptionsView() {
             </div>
             <div className="main-container">
                 <h2>Type your options and add more if necessary</h2>
+                <PickOptionsContainer/>
             </div>
         </>
     );
