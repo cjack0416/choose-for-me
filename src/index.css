@@ -3,7 +3,7 @@
   --button-color: #C17AC7;
   --button-hover-color: #9e4ea5;
   --grey-container-color: #F3F3F3;
-  --grey-container-border-coloer: #A4A4A4;
+  --grey-container-border-color: #A4A4A4;
   --grey-input-container-color: #D9D9D9;
   --input-placeholder-color: #9D9D9D;
   --selected-option-color: #50D944;
@@ -48,11 +48,12 @@ h2 {
   border-radius: 3px;
   position: relative;
   top: 0;
-  transition: top ease 0.3s, background-color ease-in 0.3s;
+  transition: top ease 0.3s, background-color ease-in 0.3s, box-shadow ease-in 0.3s;
 }
 
 .btn:hover {
   background-color: var(--button-hover-color);
+  box-shadow: 0px 8px 8px rgba(0, 0, 0, 0.25);
   top: -8px;
 }
 
