@@ -5,7 +5,7 @@ export default function HomeView() {
     const btnWidth = '12em', btnHeight = '4em', btnOneText = 'I know my options', btnTwoText = 'find options for me';
 
     return(
-        <div className='main-container'>
+        <div className='home-main-container'>
             <h1>Choose For Me</h1>
             <div className='pg-routes-grid'>
                 <h2 className='pg-grid-item'>tell us the list of options and we’ll choose for you</h2>

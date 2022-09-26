@@ -3,11 +3,11 @@ h2 {
 }
 
 .top-container {
-    margin: 5rem 0 0 8rem;
+    margin: 5rem 0 0 3rem;
 }
 
-.main-container {
+.pick-option-main-container {
     display: flex;
-    align-items: center;
-    flex-direction: column;
+    justify-content: center;
+    margin: 0 5rem 0 5rem;
 }

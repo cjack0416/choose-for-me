@@ -2,6 +2,6 @@
 
 export default function CircleButton({ classname, symbol, onclick }) {
     return(
-        <button className={classname} onClick={onclick}>{ symbol }</button>
+        <button className={`circle-btn ${classname}`} onClick={onclick}>{ symbol }</button>
     );
 }
