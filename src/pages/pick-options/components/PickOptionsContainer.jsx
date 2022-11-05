@@ -4,21 +4,19 @@ import Options from "./Options";
 import "./index.css"
 
 export default function PickOptionsContainer() {
-    const [options, setOptions] = useState(["", ""])
+    const [optionCount, setOptionCount] = useState(2)
 
     function addOption() {
-        setOptions(prevOptions => ([...prevOptions, ""]))
+        setOptionCount(prevOptionCount => prevOptionCount + 1)
     }
 
-    function removeOption() {
-        let len = options.length
-        let arr = options.slice(0, len - 1)
-        setOptions(arr)
+    function subtractOptionCount() {
+        setOptionCount(prevOptionCount => prevOptionCount - 1)
     }
 
     return(
         <div className="options-container">
-            <Options options={options} setOption={setOptions} removeOption={removeOption}/>
+            <Options optionCount={optionCount} subtractOptionCount={subtractOptionCount}/>
             <div style={{display: "flex", justifyContent: "center", height:0}}>
                 <CircleButton classname={"add-option-btn"} symbol={"+"} onclick={addOption}/>
             </div>
