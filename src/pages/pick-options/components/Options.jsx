@@ -1,18 +1,18 @@
 
 
-export default function Options({ optionCount, subtractOptionCount }) {
+export default function Options({ options, subtractOption }) {
 
     return(
         <>
-            {Array.from({ length: optionCount}).map((option, index) => 
-                <div>
-                    <input placeholder={`option ${index + 1}`} type="text"/>
+            {options.map((option, index) => 
+                <div key={option.divId}>
+                    <input placeholder={`option ${index + 1}`} type="text" key={option.inputId}/>
                     { index > 1 &&
-                    <span>
-                        <button onClick={subtractOptionCount}>x</button>
+                    <span key={option.spanId}>
+                        <button onClick={subtractOption} key={option.buttonId}>x</button>
                     </span> }
-                    { index !== optionCount - 1 &&
-                    <hr/> }
+                    { index !== options.length - 1 &&
+                    <hr key={option.hrId}/> }
                 </div>
                 )
 
