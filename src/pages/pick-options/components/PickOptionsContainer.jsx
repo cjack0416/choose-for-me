@@ -1,8 +1,8 @@
-import { useState } from "react";
-import CircleButton from "./CircleButton";
-import OptionList from "./OptionList";
-import "./index.css";
-import { v4 as uuidv4 } from "uuid";
+import { useState } from "react"
+import CircleButton from "./CircleButton"
+import OptionList from "./OptionList"
+import "./index.css"
+import { v4 as uuidv4 } from "uuid"
 
 export default function PickOptionsContainer() {
     const [options, setOptions] = useState([ uuidv4(), uuidv4() ])
