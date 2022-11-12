@@ -1,35 +1,30 @@
 import { useState } from "react";
 import CircleButton from "./CircleButton";
-import Options from "./Options";
+import OptionList from "./OptionList";
 import "./index.css";
 import { v4 as uuidv4 } from "uuid";
 
 export default function PickOptionsContainer() {
-    const [options, setOptions] = useState([
-        {
-            createOption
-        },
-        {
-            createOption
-        }
-    ])
-
-    function createOption() {
-        return { divId: uuidv4(), inputId: uuidv4(), spanId: uuidv4(), buttonId: uuidv4(), hrId: uuidv4() }
-    }
+    const [options, setOptions] = useState([ uuidv4(), uuidv4() ])
 
     function addOption() {
-        setOptions(prevOptions => [...prevOptions, createOption()])
+        setOptions(prevOptions => [...prevOptions, uuidv4()])
     }
 
-    function subtractOption() {
-        let newOptionArr = options.slice(0, options.length - 1)
-        setOptions(newOptionArr)
+    function subtractOption(event, index) {
+        let newOptionArrHead = options.slice(0, index)
+        if (index < options.length - 1) {
+            let newOptionArrTail = options.slice(index + 1, options.length)
+            let newOptionArrFinal = newOptionArrHead.concat(newOptionArrTail)
+            setOptions(newOptionArrFinal)
+            return
+        }
+        setOptions(newOptionArrHead)
     }
 
     return(
         <div className="options-container">
-            <Options options={options} subtractOption={subtractOption}/>
+            <OptionList options={options} subtractOption={subtractOption}/>
             <div style={{display: "flex", justifyContent: "center", height:0}}>
                 <CircleButton classname={"add-option-btn"} symbol={"+"} onclick={addOption}/>
             </div>
