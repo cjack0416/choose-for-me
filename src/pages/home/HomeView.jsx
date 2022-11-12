@@ -11,7 +11,7 @@ export default function HomeView() {
                 <h2 className='pg-grid-item'>tell us the list of options and we’ll choose for you</h2>
                 <Button classname='btn pg-grid-item' text={btnOneText} width={btnWidth} height={btnHeight}/>
                 <h2 className='pg-grid-item'>pick a category and location and we’ll choose for you</h2>
-                <Button classname='btn pg-grid-item' text={btnTwoText} width={btnWidth} height={btnHeight}/>
+                <Button classname='btn btn-animate pg-grid-item' text={btnTwoText} width={btnWidth} height={btnHeight}/>
             </div>
         </div>
     );
