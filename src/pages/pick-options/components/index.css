@@ -1,8 +1,8 @@
 input {
     margin: 1rem 1rem 2rem 0.5rem;
     padding: 0.6rem 5rem 0.6rem 0.5rem;
-    background-color: var(--grey-input-container-color);
-    border-style: none;
+    border-style: solid;
+    border-color: var(--grey-input-container-color);
     font-size: 1rem;
 }
 
@@ -12,6 +12,16 @@ input:hover {
 
 input:focus {
     outline-color: #797979;
+}
+
+.input-non-selected-color {
+    background-color: var(--grey-input-container-color);
+}
+
+.input-selected-color {
+    background-color: var(--selected-option-color);
+    border-style: solid;
+    border-color: var(--selected-option-border-color);
 }
 
 .options-container {
