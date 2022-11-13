@@ -1,11 +1,15 @@
-import { useState } from "react"
+import { useState, useEffect } from "react"
 import CircleButton from "./CircleButton"
 import OptionList from "./OptionList"
 import "./index.css"
 import { v4 as uuidv4 } from "uuid"
 
-export default function PickOptionsContainer() {
+export default function PickOptionsContainer({ updateOptionCount, indexChoice }) {
     const [options, setOptions] = useState([ uuidv4(), uuidv4() ])
+
+    useEffect(() => {
+        updateOptionCount(options.length)
+    },[options, updateOptionCount])
 
     function addOption() {
         setOptions(prevOptions => [...prevOptions, uuidv4()])
@@ -24,7 +28,7 @@ export default function PickOptionsContainer() {
 
     return(
         <div className="options-container">
-            <OptionList options={options} subtractOption={subtractOption}/>
+            <OptionList options={options} subtractOption={subtractOption} indexChoice = {indexChoice}/>
             <div style={{display: "flex", justifyContent: "center", height:0}}>
                 <CircleButton classname={"add-option-btn"} symbol={"+"} onclick={addOption}/>
             </div>
