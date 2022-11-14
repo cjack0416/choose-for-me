@@ -1,11 +1,17 @@
 import './index.css'
 
-export default function Option({ optionsLength, index, subtractOption, inputClassName }) {
+export default function Option({ elRef, optionsLength, index, indexChoice, subtractOption, inputClassName }) {
+
+    function isSelectedOption() {
+        if (index === indexChoice) {
+            return elRef
+        }
+    }
 
     return(
         <>
             <ul className='option-flex'>
-                <input className={inputClassName} placeholder={`option ${index + 1}`} type="text"/>
+                <input ref={isSelectedOption()} className={inputClassName} placeholder={`option ${index + 1}`} type="text"/>
                 { index > 1 &&
                 <span>
                     <button className="delete-btn" onClick={event => subtractOption(event, index)}>&#10005;</button>
