@@ -6,13 +6,13 @@ h2 {
     margin: 5rem 0 0 3rem;
 }
 
-.pick-option-main-container {
+.pick-option-container {
     display: flex;
     justify-content: center;
     margin: 0 5rem 0 5rem;
 }
 
 .choose-btn {
-    margin-top: 5rem;
-    margin-bottom: 5rem;
+    margin-top: 7rem;
+    margin-bottom: 4rem;
 }

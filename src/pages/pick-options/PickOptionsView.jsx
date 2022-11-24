@@ -4,15 +4,26 @@ import CircleButton from "./components/CircleButton"
 import Button from "../../components/Button"
 import { HiArrowLeft } from 'react-icons/hi'
 import "./index.css"
+import Loading from "../../components/Loading"
 
 export default function PickOptionsView() {
     const [indexChoice, setIndexChoice] = useState(-1)
-    const [btnText, setBtnText] = useState("choose")
-    const [optionCount, setOptionCount] = useState(2)
+    const [isLoading, setIsLoading] = useState(false)
 
     const ref = useRef(null)
+    const btnText = useRef("choose")
+    const optionCount = useRef(2)
+    const didMount = useRef(false)
+    const chooseBtn = useRef(null)
 
-    const btnWidth = "6em", btnHeight = "2.5em"
+    const btnWidth = "6em", btnHeight = "2.5em", loadingTime = 3000
+
+    useEffect(() => {
+        if (!isLoading && didMount.current) {
+            setIndexChoice(Math.floor(Math.random() * optionCount.current))
+            btnText.current = "retry"
+        }
+    }, [isLoading])
 
     useEffect(() => {
         if (ref.current !== null) {
@@ -24,15 +35,14 @@ export default function PickOptionsView() {
     }, [indexChoice])
 
     function updateOptionCount( newOptionCount ) {
-        setOptionCount(newOptionCount)
+        optionCount.current = newOptionCount
+        btnText.current = "choose"
         setIndexChoice(-1)
-        setBtnText("choose")
     }
 
     function onChoose() {
-        console.log(optionCount)
-        setIndexChoice(Math.floor(Math.random() * optionCount))
-        setBtnText("retry")
+        setIsLoading(true)
+        didMount.current = true
     }
 
     return(
@@ -40,14 +50,19 @@ export default function PickOptionsView() {
             <div className="top-container">
                 <CircleButton classname='back-btn' symbol={<HiArrowLeft/>}/>
             </div>
-            <div className="pick-option-main-container">
+            <div className="pick-option-container">
                 <h2 style={{ textAlign: "center" }}>Type your options and add more if you need to</h2>
             </div>
-            <div className="pick-option-main-container">
+            <div className="pick-option-container">
                 <PickOptionsContainer elRef={ref} updateOptionCount = {updateOptionCount} indexChoice = {indexChoice}/>
             </div>
-            <div className="pick-option-main-container">
-                <Button classname={'btn choose-btn'} text={btnText} width={btnWidth} height={btnHeight} onClick={onChoose}/>
+                {isLoading &&
+                <div className="pick-option-container" style={{margin: "0", position: "relative", height: "0"}}> 
+                    <Loading setIsLoading={setIsLoading} loadingTime={loadingTime}/>
+                </div>
+                }
+            <div className="pick-option-container">
+                <Button classname={'btn choose-btn'} ref={chooseBtn} text={btnText.current} width={btnWidth} height={btnHeight} onClick={onChoose}/>
             </div>
         </>
     );
