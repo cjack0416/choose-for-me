@@ -6,10 +6,6 @@ input {
     font-size: 1rem;
 }
 
-input:hover {
-    background-color: #c4c4c4;
-}
-
 input:focus {
     outline-color: #797979;
 }
@@ -78,7 +74,7 @@ input:focus {
     color: rgb(94, 94, 94);
     margin-right: 0.5em;
   }
-  
+
   .delete-btn:hover {
     color: black;
   }
